@@ -7,7 +7,7 @@ signal kembali
 ## Dipancarkan setelah telur menetas (koleksi berubah, perlu disimpan).
 signal berubah
 
-const PUSAT := Vector2(320, 190)
+const PUSAT := Vector2(320, 220)
 const SKALA := 3.0
 
 var _data: GameData
@@ -28,13 +28,19 @@ func setup(data: GameData, state: PlayerState, rng: RandomNumberGenerator) -> vo
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(UiTheme.latar())
-	var judul := UiTheme.judul(tr("TELUR_JUDUL"))
-	judul.position = Vector2(12, 8)
-	add_child(judul)
+	var pita := UiTheme.pita(tr("TELUR_JUDUL"), 200)
+	pita.position = Vector2(220, 4)
+	add_child(pita)
+	var tutup := UiTheme.tombol_bulat("Close")
+	tutup.position = Vector2(596, 0)
+	tutup.pressed.connect(func() -> void:
+		if not _sibuk:
+			kembali.emit())
+	add_child(tutup)
 
 	var panel := PanelContainer.new()
-	panel.position = Vector2(8, 24)
-	panel.size = Vector2(624, 96)
+	panel.position = Vector2(6, 40)
+	panel.size = Vector2(628, 100)
 	add_child(panel)
 	var gulir := ScrollContainer.new()
 	gulir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -47,19 +53,11 @@ func _ready() -> void:
 	add_child(_panggung)
 
 	_pesan = Label.new()
-	_pesan.position = Vector2(120, 262)
+	_pesan.position = Vector2(120, 296)
 	_pesan.size = Vector2(400, 40)
 	_pesan.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_pesan)
 
-	var b := Button.new()
-	b.text = tr("TOMBOL_KEMBALI")
-	b.position = Vector2(260, 310)
-	b.size = Vector2(120, 42)
-	b.pressed.connect(func() -> void:
-		if not _sibuk:
-			kembali.emit())
-	add_child(b)
 	_segarkan()
 
 
@@ -117,7 +115,7 @@ func _segarkan() -> void:
 		var b := Button.new()
 		b.icon = load(e["sprite"])
 		b.text = GameData.nama(e)
-		b.custom_minimum_size = Vector2(120, 42)
+		b.custom_minimum_size = Vector2(146, 42)
 		b.pressed.connect(tetaskan.bind(i))
 		_daftar.add_child(b)
 	_pesan.text = tr("TELUR_KOSONG") if _state.eggs.is_empty() else tr("TELUR_PETUNJUK")

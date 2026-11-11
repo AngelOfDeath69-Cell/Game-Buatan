@@ -31,7 +31,7 @@ var team_bintang: Array = [[], []]
 
 
 ## [param team_a]: tim pemain (kiri), [param team_b]: lawan (kanan), urut dari depan.
-func setup(data: GameData, team_a: Array, team_b: Array, rng_seed: int) -> void:
+func setup(data: GameData, team_a: Array, team_b: Array, rng_seed: int, kecepatan := 1) -> void:
 	_data = data
 	_sim = BattleSim.new(team_a, team_b, data.battle, rng_seed)
 	team_bintang = [
@@ -40,7 +40,7 @@ func setup(data: GameData, team_a: Array, team_b: Array, rng_seed: int) -> void:
 	]
 	var arena_list: Array = data.battle["arena"]
 	_nama_arena = arena_list[rng_seed % arena_list.size()]
-	_tempo = 1.0 / float(data.battle["tampil"]["kecepatan"])
+	_tempo = 1.0 / (float(data.battle["tampil"]["kecepatan"]) * kecepatan)
 
 
 func _ready() -> void:
@@ -65,20 +65,22 @@ func _ready() -> void:
 		v.setup(load(u.sprite), u.side == 0, p)
 		_views.append(v)
 		var b: int = (team_bintang[u.side][u.slot])
-		if b > 1:
-			var lb := UiTheme.label_bintang(b)
-			lb.position = Vector2(-20, 2)
-			lb.size = Vector2(40, 10)
-			lb.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			v.add_child(lb)
+		var lb := UiTheme.baris_bintang(b)
+		lb.alignment = BoxContainer.ALIGNMENT_CENTER
+		lb.position = Vector2(-30, 2)
+		lb.size = Vector2(60, 11)
+		v.add_child(lb)
 
-	var strip := ColorRect.new()
-	strip.color = Color("1b1420")
-	strip.position = Vector2(0, TINGGI_ARENA)
-	strip.size = Vector2(LEBAR, 360 - TINGGI_ARENA)
+	var strip := NinePatchRect.new()
+	strip.texture = load(UiTheme.REGALIA + "20240709dragonButtonB-Sheet.png")
+	strip.region_rect = Rect2(312, 0, 104, 35)
+	strip.patch_margin_left = 24
+	strip.patch_margin_right = 24
+	strip.position = Vector2(-10, 325)
+	strip.size = Vector2(LEBAR + 20, 35)
 	add_child(strip)
 	_log = Label.new()
-	_log.position = Vector2(8, TINGGI_ARENA + 6)
+	_log.position = Vector2(8, 333)
 	_log.size = Vector2(LEBAR - 16, 20)
 	_log.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_log.text = tr("BATTLE_MULAI")
@@ -186,18 +188,16 @@ func _tampil_hasil() -> void:
 	if w == 0:
 		menang.emit()
 	var panel := PanelContainer.new()
-	panel.position = Vector2(200, 90)
-	panel.size = Vector2(240, 150)
+	panel.position = Vector2(190, 96)
+	panel.size = Vector2(260, 170)
+	var pita := UiTheme.pita(teks, 220, 2)
+	pita.position = Vector2(210, 76)
+	pita.z_index = 1
 	add_child(panel)
 	var isi := VBoxContainer.new()
 	isi.alignment = BoxContainer.ALIGNMENT_CENTER
 	isi.add_theme_constant_override("separation", 6)
 	panel.add_child(isi)
-	var judul := UiTheme.judul(teks)
-	judul.add_theme_font_size_override("font_size", UiTheme.UKURAN_JUDUL * 2)
-	judul.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	judul.modulate = Color("ffd23c") if w == 0 else Color.WHITE
-	isi.add_child(judul)
 	if not hadiah.is_empty():
 		var telur := TextureRect.new()
 		telur.texture = load(hadiah["sprite"])
@@ -208,11 +208,13 @@ func _tampil_hasil() -> void:
 		ket.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		isi.add_child(ket)
 	var b := Button.new()
-	b.text = tr("TOMBOL_KEMBALI")
-	b.custom_minimum_size = Vector2(120, 36)
+	b.text = tr("TOMBOL_OK")
+	b.theme_type_variation = "Utama"
+	b.custom_minimum_size = Vector2(140, 40)
 	b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	b.pressed.connect(func() -> void: kembali.emit())
 	isi.add_child(b)
+	add_child(pita)
 	selesai = true
 
 

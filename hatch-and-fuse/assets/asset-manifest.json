@@ -283,6 +283,20 @@
       "acquired": "2026-11-11",
       "status": "terpasang",
       "license_verified_at_source": true
+    },
+    {
+      "id": "rafaelchm-stars",
+      "name": "Stars",
+      "creator": "Rafaelchm",
+      "url": "https://opengameart.org/content/stars-0",
+      "path": "assets/ui/ikon/bintang.png",
+      "license": "CC0-1.0",
+      "attribution": "tidak wajib (tetap dicantumkan di CREDITS.md)",
+      "redistribution": "boleh",
+      "contents": "ikon bintang 11x11 (hasil perkecil dari star1.png)",
+      "acquired": "2026-11-11",
+      "status": "terpasang",
+      "license_verified_at_source": true
     }
   ],
   "needs": [
@@ -317,8 +331,8 @@
     {
       "id": "ui",
       "role": "tombol, panel, bar, bingkai",
-      "have": "3 pack UI",
-      "gap": "bar HP bergambar (sekarang kotak warna)",
+      "have": "Dragon Regalia dipakai untuk seluruh UI; ikon bintang",
+      "gap": "ikon elemen di kartu naga",
       "status": "sebagian"
     },
     {

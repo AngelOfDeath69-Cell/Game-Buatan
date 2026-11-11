@@ -96,13 +96,16 @@ func _test_simpan_muat() -> void:
 	s.fusion("dragon", 1, _data)
 	s.eggs.append("emas")
 	s.bahasa = "id"
+	s.kecepatan = 2
 	var d: Dictionary = JSON.parse_string(JSON.stringify(s.to_dict()))
 	var t := PlayerState.from_dict(d, _data)
-	_cek(t.naga == s.naga and t.eggs == s.eggs and t.bahasa == "id", "simpan -> muat mengembalikan data yang sama")
+	_cek(t.naga == s.naga and t.eggs == s.eggs and t.bahasa == "id" and t.kecepatan == 2, "simpan -> muat mengembalikan data yang sama")
 	var lama := PlayerState.from_dict({"owned": ["dragon", "tidak_ada", 7], "eggs": ["api", "palsu"]}, _data)
 	_cek(lama.naga == [{"id": "dragon", "b": 1}] and lama.eggs == ["api"], "berkas simpan lama terbaca, entri tidak dikenal dibuang")
 	var kotor := PlayerState.from_dict({"naga": [{"id": "dragon", "b": 99}, {"id": "x", "b": 1}, 3], "bahasa": "xx"}, _data)
-	_cek(kotor.naga == [{"id": "dragon", "b": int(_data.koleksi["maks_bintang"])}] and kotor.bahasa == "en", "bintang dibatasi, naga/bahasa tidak dikenal dibuang")
+	_cek(kotor.naga == [{"id": "dragon", "b": int(_data.koleksi["maks_bintang"])}] and kotor.bahasa == "en" and kotor.kecepatan == 1, "bintang dibatasi, naga/bahasa tidak dikenal dibuang")
+	var kuat := PlayerState.from_dict({"naga": [{"id": "golden_dragon", "b": 1}, {"id": "fire_drake", "b": 3}, {"id": "dragon", "b": 1}]}, _data)
+	_cek(kuat.naga_terkuat(_data)["id"] == "fire_drake", "naga terkuat = bintang tertinggi")
 	_cek(PlayerState.muat("user://tidak_ada.json", _data).naga.size() > 0, "berkas simpan tidak ada -> pemain baru")
 
 

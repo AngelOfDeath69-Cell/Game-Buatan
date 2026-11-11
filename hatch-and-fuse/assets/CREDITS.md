@@ -23,5 +23,6 @@ Semua aset di folder ini berlisensi **CC0 1.0** (domain publik) dan diambil dari
 | 496 pixel art icons for medieval/fantasy RPG | Henrique Lazarini (7Soul1) | `icons/rpg-496/` | https://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg |
 | Minimalist Pixel Fonts | kheftel | `fonts/Minimal5x7.ttf` | https://opengameart.org/content/minimalist-pixel-fonts |
 | Public Pixel Font | GGBotNet | `fonts/PublicPixel.ttf` | https://opengameart.org/content/public-pixel-font |
+| Stars | Rafaelchm | `ui/ikon/bintang.png` | https://opengameart.org/content/stars-0 |
 
 Catatan: tile Dungeon Crawl Stone Soup dibuat oleh banyak kontributor proyek crawl-tiles (pemelihara: Chris Hamons).

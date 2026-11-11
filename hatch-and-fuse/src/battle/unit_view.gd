@@ -4,7 +4,8 @@ extends Node2D
 ## (napas, maju, hindar, blok, kena, mati) dibuat dengan tween.
 
 const SKALA := 2.0
-const BAR := Vector2(36, 4)
+const LEBAR_BAR := 46.0
+const BAR := Vector2(LEBAR_BAR - 10, 4)
 const JARAK_MAJU := 30.0
 const JARAK_HINDAR := 22.0
 
@@ -28,8 +29,12 @@ func setup(tex: Texture2D, menghadap_kanan: bool, posisi: Vector2) -> void:
 	_sprite.flip_h = menghadap_kanan
 	_sprite.offset = Vector2(0, -tex.get_height() / 2.0)
 	add_child(_sprite)
-	_hp_isi = _bar(Vector2(-BAR.x / 2, -_tinggi - 10), BAR, Color("3ddc5a"))
-	_en_isi = _bar(Vector2(-BAR.x / 2, -_tinggi - 5), Vector2(BAR.x, 2), Color("ffd23c"))
+	_hp_isi = UiTheme.bar(self, Vector2(-LEBAR_BAR / 2, -_tinggi - 16), LEBAR_BAR, Color("3ddc5a"))
+	_en_isi = ColorRect.new()
+	_en_isi.color = Color("ffd23c")
+	_en_isi.position = Vector2(-BAR.x / 2, -_tinggi - 3)
+	_en_isi.size = Vector2(BAR.x, 2)
+	add_child(_en_isi)
 	set_energi(0.0)
 	var napas := create_tween().set_loops()
 	napas.tween_interval(randf() * 0.4)
@@ -111,16 +116,3 @@ func mati(durasi: float) -> void:
 	t.parallel().tween_property(_sprite, "position:y", 8.0, durasi)
 	t.parallel().tween_property(_sprite, "rotation", -_arah * 0.6, durasi)
 
-
-func _bar(pos: Vector2, ukuran: Vector2, warna: Color) -> ColorRect:
-	var latar := ColorRect.new()
-	latar.color = Color(0, 0, 0, 0.75)
-	latar.position = pos - Vector2.ONE
-	latar.size = ukuran + Vector2(2, 2)
-	add_child(latar)
-	var isi := ColorRect.new()
-	isi.color = warna
-	isi.position = pos
-	isi.size = ukuran
-	add_child(isi)
-	return isi

@@ -1,20 +1,16 @@
 class_name FormationScreen
 extends Control
-## Layar pilih naga dan formasi. Pemain memilih 3 naga miliknya: depan, tengah, belakang.
+## Layar persiapan battle: pemain memilih 3 naga miliknya (depan, tengah, belakang).
 
 ## Dipancarkan saat pemain menekan Mulai. [param team]: Array data battle naga
 ## (lihat [method GameData.stat_naga]) urut dari depan.
 signal mulai(team: Array)
-## Dipancarkan saat pemain menekan tombol Telur.
-signal buka_telur
-## Dipancarkan saat pemain menekan tombol Fusion.
-signal buka_fusion
-## Dipancarkan saat pemain menekan tombol bahasa.
-signal ganti_bahasa
+## Dipancarkan saat pemain menutup layar.
+signal kembali
 
 const JUMLAH_SLOT := 3
 const KOLOM := 8
-const SEL := Vector2(46, 42)
+const SEL := Vector2(44, 44)
 
 var _data: GameData
 var _state: PlayerState
@@ -24,6 +20,7 @@ var _urut: Array[int] = []
 var _team: Array[int] = []
 var _tombol_naga: Array[Button] = []
 var _tombol_slot: Array[Button] = []
+var _bintang_slot: Array[Control] = []
 var _tombol_mulai: Button
 var _info: Label
 
@@ -36,22 +33,25 @@ func setup(data: GameData, state: PlayerState) -> void:
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(UiTheme.latar())
-
-	var judul := UiTheme.judul(tr("FORMASI_JUDUL") % [_state.jumlah_jenis(), _data.dragons.size()])
-	judul.position = Vector2(12, 8)
-	add_child(judul)
+	var pita := UiTheme.pita(tr("FORMASI_JUDUL"), 260)
+	pita.position = Vector2(190, 4)
+	add_child(pita)
+	var tutup := UiTheme.tombol_bulat("Close")
+	tutup.position = Vector2(596, 0)
+	tutup.pressed.connect(func() -> void: kembali.emit())
+	add_child(tutup)
 
 	var kisi_panel := PanelContainer.new()
-	kisi_panel.position = Vector2(8, 24)
-	kisi_panel.size = Vector2(396, 328)
+	kisi_panel.position = Vector2(6, 40)
+	kisi_panel.size = Vector2(398, 314)
 	add_child(kisi_panel)
 	var gulir := ScrollContainer.new()
 	gulir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kisi_panel.add_child(gulir)
 	var kisi := GridContainer.new()
 	kisi.columns = KOLOM
-	kisi.add_theme_constant_override("h_separation", 1)
-	kisi.add_theme_constant_override("v_separation", 1)
+	kisi.add_theme_constant_override("h_separation", 2)
+	kisi.add_theme_constant_override("v_separation", 2)
 	gulir.add_child(kisi)
 
 	for i in _state.naga.size():
@@ -70,44 +70,43 @@ func _ready() -> void:
 	for p in _urut.size():
 		var d := _stat(p)
 		var b := Button.new()
+		b.theme_type_variation = "Sel"
 		b.icon = load(d["sprite"])
 		b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		b.custom_minimum_size = SEL
 		b.pressed.connect(pilih.bind(p))
 		b.mouse_entered.connect(_tampil_info.bind(d))
-		if d["bintang"] > 1:
-			var lb := UiTheme.label_bintang(d["bintang"])
-			lb.position = Vector2(3, 2)
-			b.add_child(lb)
+		var bintang := UiTheme.baris_bintang(d["bintang"])
+		bintang.position = Vector2(2, 1)
+		b.add_child(bintang)
 		kisi.add_child(b)
 		_tombol_naga.append(b)
 
 	for i in JUMLAH_SLOT:
 		var s := Button.new()
-		s.position = Vector2(412, 24 + i * 55)
-		s.size = Vector2(220, 52)
+		s.position = Vector2(410, 40 + i * 52)
+		s.size = Vector2(224, 50)
 		s.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		s.pressed.connect(lepas.bind(i))
 		add_child(s)
 		_tombol_slot.append(s)
+		var wadah := Control.new()
+		wadah.position = Vector2(150, 6)
+		wadah.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		s.add_child(wadah)
+		_bintang_slot.append(wadah)
 
 	_info = Label.new()
-	_info.position = Vector2(416, 188)
-	_info.size = Vector2(212, 46)
+	_info.position = Vector2(414, 198)
+	_info.size = Vector2(216, 60)
 	_info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	add_child(_info)
 
-	var telur := _tombol(tr("TOMBOL_TELUR") % _state.eggs.size(), Rect2(412, 236, 108, 34), buka_telur)
-	if not _state.eggs.is_empty():
-		telur.icon = load(_data.get_egg(_state.eggs[0])["sprite"])
-		telur.expand_icon = true
-	_tombol(tr("TOMBOL_FUSION"), Rect2(524, 236, 108, 34), buka_fusion)
-	_tombol(tr("TOMBOL_BAHASA"), Rect2(412, 272, 220, 32), ganti_bahasa)
-
 	_tombol_mulai = Button.new()
+	_tombol_mulai.theme_type_variation = "Utama"
 	_tombol_mulai.text = tr("TOMBOL_MULAI")
-	_tombol_mulai.position = Vector2(412, 306)
-	_tombol_mulai.size = Vector2(220, 46)
+	_tombol_mulai.position = Vector2(410, 304)
+	_tombol_mulai.size = Vector2(224, 50)
 	_tombol_mulai.pressed.connect(mulai_battle)
 	add_child(_tombol_mulai)
 	_segarkan()
@@ -142,26 +141,19 @@ func _stat(p: int) -> Dictionary:
 	return _data.stat_naga(_state.naga[_urut[p]])
 
 
-func _tombol(teks: String, kotak: Rect2, sinyal: Signal) -> Button:
-	var b := Button.new()
-	b.text = teks
-	b.position = kotak.position
-	b.size = kotak.size
-	b.pressed.connect(func() -> void: sinyal.emit())
-	add_child(b)
-	return b
-
-
 func _segarkan() -> void:
 	for p in _tombol_naga.size():
 		_tombol_naga[p].disabled = _team.has(p)
 	for i in _tombol_slot.size():
 		var s := _tombol_slot[i]
+		for c in _bintang_slot[i].get_children():
+			c.queue_free()
 		var nama_slot := tr("SLOT_%d" % i)
 		if i < _team.size():
 			var d := _stat(_team[i])
 			s.icon = load(d["sprite"])
-			s.text = "%s\n%s %s" % [nama_slot, d["nama"], UiTheme.bintang(d["bintang"])]
+			s.text = "%s\n%s" % [nama_slot, d["nama"]]
+			_bintang_slot[i].add_child(UiTheme.baris_bintang(d["bintang"]))
 		else:
 			s.icon = null
 			s.text = "%s\n%s" % [nama_slot, tr("KOSONG")]
@@ -172,6 +164,6 @@ func _segarkan() -> void:
 
 func _tampil_info(d: Dictionary) -> void:
 	_info.text = tr("INFO_NAGA") % [
-		d["nama"], UiTheme.bintang(d["bintang"]), GameData.nama_elemen(d["elemen"]), int(d["tingkat"]),
+		d["nama"], GameData.nama_elemen(d["elemen"]), int(d["tingkat"]), int(d["bintang"]),
 		int(d["hp"]), int(d["atk"]), int(d["def"]), int(d["spd"]),
 	]

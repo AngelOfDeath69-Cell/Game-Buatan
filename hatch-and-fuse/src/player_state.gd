@@ -10,6 +10,8 @@ var naga: Array[Dictionary] = []
 var eggs: Array[String] = []
 ## Kode bahasa antarmuka: "en" atau "id".
 var bahasa := "en"
+## Kecepatan animasi battle: 1 atau 2.
+var kecepatan := 1
 
 
 ## Pemain baru: naga awal dan telur awal dari `koleksi.json`.
@@ -33,11 +35,13 @@ static func from_dict(d: Dictionary, data: GameData) -> PlayerState:
 			s.eggs.append(id)
 	if d.get("bahasa") in GameData.BAHASA:
 		s.bahasa = d["bahasa"]
+	if int(d.get("kecepatan", 1)) == 2:
+		s.kecepatan = 2
 	return s
 
 
 func to_dict() -> Dictionary:
-	return {"v": VERSI, "naga": naga, "eggs": eggs, "bahasa": bahasa}
+	return {"v": VERSI, "naga": naga, "eggs": eggs, "bahasa": bahasa, "kecepatan": kecepatan}
 
 
 ## Muat dari berkas; pemain baru bila berkas tidak ada, rusak, atau tanpa naga.
@@ -63,6 +67,16 @@ func jumlah_jenis() -> int:
 	for n in naga:
 		jenis[n["id"]] = true
 	return jenis.size()
+
+
+## Naga terkuat (bintang, lalu tingkat, lalu ATK tertinggi) sebagai data battle.
+func naga_terkuat(data: GameData) -> Dictionary:
+	var terbaik := {}
+	for n in naga:
+		var d := data.stat_naga(n)
+		if terbaik.is_empty() or [d["bintang"], d["tingkat"], d["atk"]] > [terbaik["bintang"], terbaik["tingkat"], terbaik["atk"]]:
+			terbaik = d
+	return terbaik
 
 
 ## Tetaskan telur ke-[param index]: naga acak dari elemen telur itu (boleh kembar),
