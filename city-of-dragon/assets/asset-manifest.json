@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "art_direction_brief": "docs/art-direction-brief.md",
+  "updated": "2026-11-11",
+  "packs": [
+    {
+      "id": "magicae-dragons",
+      "name": "Free Pixel Art Dragons",
+      "creator": "Magicae Games",
+      "url": "https://magicae-games.itch.io/free-pixel-art-dragons",
+      "file": "Dragons.zip",
+      "path": "assets/_sumber/magicae-dragons/",
+      "price": "gratis (name your own price)",
+      "license": "Custom: komersial + modifikasi boleh, dilarang jual ulang",
+      "attribution": "tidak diwajibkan di halaman; tetap dicantumkan di kredit",
+      "redistribution": "tidak jelas - anggap dilarang",
+      "ai_generated": "tidak disebut",
+      "contents": "4 naga (api, air, tanah, udara), 4 arah, 11 animasi",
+      "use": "naga di kota (32px)",
+      "status": "menunggu unduhan",
+      "license_verified_at_source": false
+    },
+    {
+      "id": "tiny-dragon",
+      "name": "Tiny Dragon Sprite Pack",
+      "creator": "browser-games-plus",
+      "url": "https://browser-games-plus.itch.io/tiny-dragon-sprite-pack",
+      "path": "assets/_sumber/tiny-dragon/",
+      "price": "gratis (name your own price)",
+      "license": "Simple Commercial License (LICENSE.txt di zip)",
+      "attribution": "cek LICENSE.txt",
+      "redistribution": "dilarang",
+      "ai_generated": "AI-assisted (diungkap di halaman)",
+      "contents": "8 naga 64x64 (fire, ice, shadow, gold, toxic, crystal, plushie, rainbow), animasi bounce 6 frame",
+      "use": "naga battle + kartu koleksi; seed gaya",
+      "status": "menunggu unduhan",
+      "license_verified_at_source": false
+    },
+    {
+      "id": "cethiel-dragon",
+      "name": "Dragon - Fully Animated",
+      "creator": "Cethiel",
+      "url": "https://opengameart.org/content/dragon-fully-animated",
+      "path": "assets/_sumber/cethiel-dragon/",
+      "price": "gratis",
+      "license": "CC0-1.0",
+      "attribution": "tidak wajib",
+      "redistribution": "boleh",
+      "ai_generated": "tidak disebut",
+      "contents": "1 naga: idle, attack, hurt, death, walk",
+      "use": "boss / acuan animasi battle (gaya belum dicek)",
+      "status": "menunggu unduhan",
+      "license_verified_at_source": false
+    }
+  ],
+  "needs": [
+    { "id": "dragons-battle", "role": "naga battle 64x64: idle, attack, skill, dodge, block, hurt, death", "target": "12 naga awal", "source": "tiny-dragon (idle saja) - sisanya efek engine dulu, sprite menyusul", "status": "kurang" },
+    { "id": "dragons-city", "role": "naga jalan di kota 32x32", "target": "4 elemen", "source": "magicae-dragons", "status": "tertutup setelah unduh" },
+    { "id": "dragons-evolution", "role": "tahap bayi/remaja/dewasa", "target": "3 tahap per naga", "source": "belum ada sumber pixel gratis", "status": "kurang" },
+    { "id": "ui", "role": "tombol, panel, bar HP, ikon elemen", "source": "Kenney (CC0) - belum dipilih", "status": "direncanakan" },
+    { "id": "city-tiles", "role": "tile kota, habitat, bangunan", "source": "belum dicari", "status": "direncanakan" },
+    { "id": "battle-bg", "role": "latar arena battle", "source": "belum dicari", "status": "direncanakan" },
+    { "id": "vfx", "role": "efek serangan per elemen", "source": "belum dicari", "status": "direncanakan" }
+  ]
+}
