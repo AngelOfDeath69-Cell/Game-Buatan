@@ -17,6 +17,9 @@ Screenshot: `docs/pratinjau/game-*.png`.
 | Tes logika battle | `godot --headless -s res://tests/test_battle_sim.gd` |
 | Tes koleksi + telur | `godot --headless -s res://tests/test_player_state.gd` |
 | Ambil screenshot otomatis | `xvfb-run -a godot --fixed-fps 60 -s res://tools/capture.gd -- FOLDER` |
+| Buat APK Android (debug) | `godot --headless --export-debug "Android" build/city-of-dragon-debug.apk` |
+
+APK butuh: template ekspor Godot 4.7.2, Android SDK (platform-tools + build-tools), Java 17+. Hasilnya di `build/` (tidak ikut di-commit). Paket: `com.gamebuatan.cityofdragon`, arm64 saja, belum dicoba di HP sungguhan.
 
 ## Struktur
 | Lokasi | Isi |
@@ -47,4 +50,4 @@ Screenshot: `docs/pratinjau/game-*.png`.
 | `assets/icons/` | 911 ikon jurus/item |
 
 ## Belum ada
-Level + evolusi, kota, mata uang/toko, audio, sprite naga beranimasi (gerak sekarang dibuat engine), ekspor Android.
+Level + evolusi, kota, mata uang/toko, audio, sprite naga beranimasi (gerak sekarang dibuat engine), APK rilis untuk Play Store (butuh keystore milik sendiri).
