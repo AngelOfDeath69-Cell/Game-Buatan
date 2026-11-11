@@ -50,6 +50,14 @@
    "source": "dcss-tiles"
   },
   {
+   "id": "golden_dragon",
+   "file": "dragons/golden_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "cahaya",
+   "source": "dcss-tiles"
+  },
+  {
    "id": "hydra_1",
    "file": "dragons/hydra_1.png",
    "size": "32x32",

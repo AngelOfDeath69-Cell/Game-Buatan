@@ -12,7 +12,7 @@
       "license": "CC0-1.0",
       "attribution": "tidak wajib (tetap dicantumkan di CREDITS.md)",
       "redistribution": "boleh",
-      "contents": "47 naga + 6 makhluk 32x32 (statis), 238 efek, 415 ikon jurus",
+      "contents": "48 naga + 6 makhluk 32x32 (statis), 238 efek, 415 ikon jurus",
       "acquired": "2026-11-11",
       "status": "terpasang",
       "license_verified_at_source": true
@@ -255,14 +255,42 @@
       "acquired": "2026-11-11",
       "status": "terpasang",
       "license_verified_at_source": true
+    },
+    {
+      "id": "kheftel-fonts",
+      "name": "Minimalist Pixel Fonts",
+      "creator": "kheftel",
+      "url": "https://opengameart.org/content/minimalist-pixel-fonts",
+      "path": "assets/fonts/Minimal5x7.ttf",
+      "contents": "font isi 5x7",
+      "license": "CC0-1.0",
+      "attribution": "tidak wajib (tetap dicantumkan di CREDITS.md)",
+      "redistribution": "boleh",
+      "acquired": "2026-11-11",
+      "status": "terpasang",
+      "license_verified_at_source": true
+    },
+    {
+      "id": "ggbotnet-public-pixel",
+      "name": "Public Pixel Font",
+      "creator": "GGBotNet",
+      "url": "https://opengameart.org/content/public-pixel-font",
+      "path": "assets/fonts/PublicPixel.ttf",
+      "contents": "font judul 8x8",
+      "license": "CC0-1.0",
+      "attribution": "tidak wajib (tetap dicantumkan di CREDITS.md)",
+      "redistribution": "boleh",
+      "acquired": "2026-11-11",
+      "status": "terpasang",
+      "license_verified_at_source": true
     }
   ],
   "needs": [
     {
       "id": "dragons-battle",
       "role": "naga battle 32x32 (tampil 2x): idle, attack, skill, dodge, block, hurt, death",
-      "have": "47 naga statis 1 frame",
-      "gap": "animasi - sementara dibuat di engine (goyang, maju, kedip, geser)",
+      "have": "48 naga statis 1 frame",
+      "gap": "sprite beranimasi asli; saat ini semua gerak dibuat tween di engine (src/battle/unit_view.gd)",
       "status": "sebagian"
     },
     {
@@ -290,7 +318,7 @@
       "id": "ui",
       "role": "tombol, panel, bar, bingkai",
       "have": "3 pack UI",
-      "gap": "bar HP khusus, font pixel",
+      "gap": "bar HP bergambar (sekarang kotak warna)",
       "status": "sebagian"
     },
     {

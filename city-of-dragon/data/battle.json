@@ -1,0 +1,59 @@
+{
+  "catatan": "Semua angka battle. Nilai awal (usulan) untuk prototipe.",
+  "ukuran_tim": 3,
+  "gauge_penuh": 100,
+  "maks_aksi": 400,
+  "energi_penuh": 100,
+  "energi_serang": 34,
+  "energi_kena": 12,
+  "def_faktor": 0.5,
+  "varian": 0.15,
+  "hindar_dasar": 0.05,
+  "hindar_per_spd": 0.006,
+  "hindar_maks": 0.3,
+  "blok_dasar": 0.08,
+  "blok_per_def": 0.006,
+  "blok_maks": 0.35,
+  "blok_reduksi": 0.5,
+  "unggul_kali": 1.5,
+  "lemah_kali": 0.75,
+  "unggul": {
+    "api": ["es", "alam"],
+    "air": ["api", "logam"],
+    "es": ["udara", "alam"],
+    "petir": ["air", "udara"],
+    "alam": ["air", "petir"],
+    "racun": ["alam", "cahaya"],
+    "udara": ["racun", "arwah"],
+    "bayangan": ["cahaya", "udara"],
+    "cahaya": ["bayangan", "arwah"],
+    "logam": ["es", "racun"],
+    "arwah": ["logam", "petir"]
+  },
+  "jurus": {
+    "api": { "nama": "Semburan Api", "vfx": "bom_api", "target": "semua", "kali": 1.0, "warna": "ffffff" },
+    "es": { "nama": "Napas Beku", "vfx": "percik", "target": "satu", "kali": 1.8, "warna": "8fe8ff" },
+    "petir": { "nama": "Sambaran Petir", "vfx": "petir", "target": "satu", "kali": 1.9, "warna": "ffffff" },
+    "racun": { "nama": "Kabut Racun", "vfx": "percik", "target": "semua", "kali": 0.9, "warna": "9cff5a" },
+    "alam": { "nama": "Cambuk Duri", "vfx": "percik", "target": "satu", "kali": 1.7, "warna": "4fd06a" },
+    "air": { "nama": "Semburan Uap", "vfx": "percik", "target": "semua", "kali": 0.9, "warna": "6fb4ff" },
+    "udara": { "nama": "Tebasan Angin", "vfx": "percik", "target": "satu", "kali": 1.7, "warna": "ffffff" },
+    "bayangan": { "nama": "Cakar Bayangan", "vfx": "bayangan", "target": "satu", "kali": 1.9, "warna": "ffffff" },
+    "cahaya": { "nama": "Sinar Suci", "vfx": "petir", "target": "semua", "kali": 1.0, "warna": "fff2a0" },
+    "logam": { "nama": "Hantaman Baja", "vfx": "percik", "target": "satu", "kali": 1.8, "warna": "d8d8e8" },
+    "arwah": { "nama": "Jerit Arwah", "vfx": "bayangan", "target": "semua", "kali": 0.9, "warna": "b9ffe0" },
+    "multi": { "nama": "Napas Lima Warna", "vfx": "bom_api", "target": "semua", "kali": 1.1, "warna": "ffb0ff" },
+    "default": { "nama": "Terkaman", "vfx": "percik", "target": "satu", "kali": 1.6, "warna": "ffffff" }
+  },
+  "vfx": {
+    "bom_api": { "pola": "res://assets/vfx/magic-pack-9/sprites/FireBomb/Fire-bomb%d.png", "frame": 15, "fps": 20, "jangkar": "tengah", "skala": 1.0 },
+    "petir": { "pola": "res://assets/vfx/magic-pack-9/sprites/Lightning/Lightning%d.png", "frame": 11, "fps": 18, "jangkar": "bawah", "skala": 1.0 },
+    "bayangan": { "pola": "res://assets/vfx/magic-pack-9/sprites/DarkBolt/Dark-Bolt%d.png", "frame": 12, "fps": 18, "jangkar": "bawah", "skala": 1.0 },
+    "percik": { "pola": "res://assets/vfx/magic-pack-9/sprites/spark/spark%d.png", "frame": 8, "fps": 16, "jangkar": "tengah", "skala": 2.0 }
+  },
+  "arena": ["grass", "jungle", "fort", "keep_outer", "mountains", "sand", "volcano", "water", "moon"],
+  "tampil": {
+    "kecepatan": 1.0,
+    "posisi_tim_kiri": [[252, 250], [184, 214], [116, 284]]
+  }
+}
