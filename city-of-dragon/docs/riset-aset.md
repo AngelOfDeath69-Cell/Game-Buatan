@@ -1,5 +1,5 @@
 # Riset Aset 2D — City of Dragon: Epic Battle
-Tanggal: 2026-11-11 · Status: riset selesai, aset belum diunduh · Lisensi wajib dicek ulang di halaman sumber sebelum dipakai.
+Tanggal: 2026-11-11 · Status: riset selesai, 18 pack CC0 terpasang · Lisensi wajib dicek ulang di halaman sumber sebelum dipakai.
 
 ## 1. Sumber naga gratis
 | Pack | Isi | Gaya | Lisensi | Cocok untuk |
@@ -50,6 +50,12 @@ Aset awal: **3 pack gratis** (Magicae, Tiny Dragon, Cethiel) — diunduh pemilik
 | [Dragon — Elthen](https://elthen.itch.io/2d-pixel-art-dragon-sprites) | $8 (bundle 6 naga $25) | 10 animasi | Komersial OK |
 
 Gratis saja = 13 naga pixel (4 + 8 + 1).
+
+## 6b. Terpasang (2026-11-11) — 18 pack CC0 dari OpenGameArt
+Diunduh langsung dan sudah ada di `assets/`: 47 naga + 6 makhluk 32×32 satu gaya, 4 boss, naga kota 16×16, 10 telur, 3 pack UI, 2 tileset kota, 16 latar, 2 pack efek + 238 efek, 911 ikon. Rincian: `assets/asset-manifest.json`, `assets/CREDITS.md`, pratinjau di `docs/pratinjau/`.
+- Pack itch.io (Magicae, Tiny Dragon) tidak terpasang: itch.io tidak bisa diunduh otomatis. Opsional, unduh manual.
+- Cethiel ditolak: ternyata render 3D, bukan pixel art.
+- Kekurangan utama: naga masih **statis 1 frame** (animasi dibuat di engine dulu), audio belum ada.
 
 ## 7. Kendala
 - Unduh otomatis tidak bisa: itch.io perlu klik tombol, OpenGameArt menolak akses otomatis. **Kamu unduh zip → unggah → aku rapikan, cek, potong frame, impor ke Godot.**

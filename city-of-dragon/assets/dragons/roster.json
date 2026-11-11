@@ -1,0 +1,461 @@
+{
+ "catatan": "usulan_elemen = usulan, belum disetujui. Nama file = nama sumber; nama naga di game ditentukan nanti.",
+ "dragons": [
+  {
+   "id": "basilisk",
+   "file": "makhluk/basilisk.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "komodo_dragon",
+   "file": "makhluk/komodo_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "salamander",
+   "file": "dragons/salamander.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "shock_serpent",
+   "file": "dragons/shock_serpent.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "petir",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "death_drake",
+   "file": "dragons/death_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "bayangan",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "dragon",
+   "file": "dragons/dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hydra_1",
+   "file": "dragons/hydra_1.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hydra_2",
+   "file": "dragons/hydra_2.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hydra_3",
+   "file": "dragons/hydra_3.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hydra_4",
+   "file": "dragons/hydra_4.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hydra_5",
+   "file": "dragons/hydra_5.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "ice_dragon",
+   "file": "dragons/ice_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "es",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "iron_dragon",
+   "file": "dragons/iron_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "logam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "mottled_dragon",
+   "file": "dragons/mottled_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "racun",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "quicksilver_dragon",
+   "file": "dragons/quicksilver_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "logam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "shadow_dragon",
+   "file": "dragons/shadow_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "bayangan",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "steam_dragon",
+   "file": "dragons/steam_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "air",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "storm_dragon",
+   "file": "dragons/storm_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "petir",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "swamp_dragon",
+   "file": "dragons/swamp_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "racun",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "wyvern",
+   "file": "dragons/wyvern.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "udara",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "fire_drake",
+   "file": "dragons/fire_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "forest_drake",
+   "file": "dragons/forest_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "griffon",
+   "file": "makhluk/griffon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "guardian_serpent",
+   "file": "dragons/guardian_serpent.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "hippogriff",
+   "file": "makhluk/hippogriff.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "eastern_dragon",
+   "file": "dragons/eastern_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "cahaya",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "holy_dragon",
+   "file": "dragons/holy_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "cahaya",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "lindwurm",
+   "file": "dragons/lindwurm.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "alam",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "manticore",
+   "file": "makhluk/manticore.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "phoenix",
+   "file": "makhluk/phoenix.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "salamander_firebrand",
+   "file": "dragons/salamander_firebrand.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "salamander_mystic",
+   "file": "dragons/salamander_mystic.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "salamander_stormcaller",
+   "file": "dragons/salamander_stormcaller.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "petir",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "swamp_drake",
+   "file": "dragons/swamp_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "racun",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "bone_dragon",
+   "file": "dragons/bone_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "serpent_of_hell",
+   "file": "dragons/serpent_of_hell.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat",
+   "file": "dragons/tiamat.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_black",
+   "file": "dragons/tiamat_black.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_green",
+   "file": "dragons/tiamat_green.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_grey",
+   "file": "dragons/tiamat_grey.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_mottled",
+   "file": "dragons/tiamat_mottled.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_pale",
+   "file": "dragons/tiamat_pale.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_red",
+   "file": "dragons/tiamat_red.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_white",
+   "file": "dragons/tiamat_white.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "tiamat_yellow",
+   "file": "dragons/tiamat_yellow.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "multi",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "xtahua",
+   "file": "dragons/xtahua.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "api",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "draconian_monk_ghost",
+   "file": "dragons/draconian_monk_ghost.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "skeleton_dragon",
+   "file": "dragons/skeleton_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "spectral_dragon",
+   "file": "dragons/spectral_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "spectral_drake",
+   "file": "dragons/spectral_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "zombie_drake",
+   "file": "dragons/zombie_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "arwah",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "simulacrum_dragon",
+   "file": "dragons/simulacrum_dragon.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "es",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "simulacrum_drake",
+   "file": "dragons/simulacrum_drake.png",
+   "size": "32x32",
+   "frames": 1,
+   "usulan_elemen": "es",
+   "source": "dcss-tiles"
+  },
+  {
+   "id": "boss_naga_perak",
+   "file": "dragons/boss/boss_naga_perak.png",
+   "size": "100x100",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "blarumyrran-dragons"
+  },
+  {
+   "id": "boss_naga_putih",
+   "file": "dragons/boss/boss_naga_putih.png",
+   "size": "100x100",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "blarumyrran-dragons"
+  },
+  {
+   "id": "boss_naga_merah",
+   "file": "dragons/boss/boss_naga_merah.png",
+   "size": "100x100",
+   "frames": 1,
+   "usulan_elemen": "",
+   "source": "blarumyrran-dragons"
+  },
+  {
+   "id": "boss_naga_biru",
+   "file": "dragons/boss/boss_naga_biru_1.png",
+   "size": "64x64",
+   "frames": 5,
+   "usulan_elemen": "air",
+   "source": "kotnaszynce-dragon"
+  }
+ ]
+}

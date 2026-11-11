@@ -1,5 +1,5 @@
 # Art Direction Brief — City of Dragon: Epic Battle
-Status: DRAFT v2 (2026-11-11) · Final: gaya pixel, strategi hybrid, Godot 4, Android + PC landscape, battle samping tim vs tim otomatis · Sisanya **usulan** sampai disetujui.
+Status: DRAFT v3 (2026-11-11) · Final: gaya pixel, strategi hybrid, Godot 4, Android + PC landscape, battle samping tim vs tim otomatis · Sisanya **usulan** sampai disetujui.
 
 ## Game frame
 - Fantasi pemain: kumpulkan, besarkan, dan adu naga; bangun kota naga.
@@ -9,7 +9,7 @@ Status: DRAFT v2 (2026-11-11) · Final: gaya pixel, strategi hybrid, Godot 4, An
 - Platform: Android + PC, landscape.
 - Kamera: battle tampak samping, tim vs tim (usulan 3 lawan 3; tim pemain di kiri hadap kanan, lawan di kanan hadap kiri — cukup satu arah sprite, lawan di-flip); kota tampak atas/top-down.
 - Viewport (usulan): 640×360, skala integer (×3 = 1920×1080).
-- Ukuran di layar: naga battle 64×64 (boss 128×128); naga kota 32×32; ikon 16/32.
+- Ukuran di layar: naga battle 64×64 (sprite 32×32 ditampilkan 2×); boss ±100×100; naga kota 16×16; ikon 32/34.
 
 ## Visual system
 - Bentuk: siluet bulat-gemuk untuk bayi, runcing-bersayap lebar untuk dewasa.
@@ -22,16 +22,16 @@ Status: DRAFT v2 (2026-11-11) · Final: gaya pixel, strategi hybrid, Godot 4, An
 - Larangan: campur gaya lukis/vektor; sprite di-scale non-integer; teks di dalam gambar; desain mirip naga game lain.
 
 ## Technical contract
-- Frame: 64×64 (battle), 32×32 (kota). PNG RGBA, latar transparan.
+- Frame: 32×32 (battle, tampil 2×), 16×16 (kota). PNG, latar transparan. Skala selalu kelipatan bulat.
 - Spritesheet: strip horizontal per animasi.
 - Pivot: bawah-tengah.
 - Godot import: Filter = Nearest, Mipmaps off, Compress = Lossless.
-- Nama: `dragon_<elemen>_<tahap>_<animasi>.png` (contoh `dragon_api_bayi_idle.png`).
+- Nama berkas naga saat ini = nama sumber (mis. `ice_dragon.png`); nama naga di game + elemen final dicatat di `assets/dragons/roster.json`.
 - Folder:
-  - `assets/_sumber/<pack>/` — zip asli + LICENSE, tidak diubah
-  - `assets/dragons/` · `assets/ui/` · `assets/kota/` · `assets/vfx/` · `assets/bg/`
+  - `assets/dragons/` (+ `boss/`, `kecil/`, `roster.json`) · `assets/makhluk/` · `assets/eggs/` · `assets/ui/` · `assets/kota/` · `assets/bg/` · `assets/vfx/` · `assets/icons/`
+  - Zip asli tidak disimpan; sumber + lisensi tiap pack ada di manifest dan `assets/CREDITS.md`.
 - Catatan lisensi tiap berkas: `assets/asset-manifest.json`.
 
 ## Visual target
-- Seed gaya: Tiny Dragon Sprite Pack (64×64) — dikonfirmasi setelah zip masuk dan dilihat di skala asli.
+- Seed gaya: tile naga Dungeon Crawl Stone Soup 32×32 (CC0) — lihat `docs/pratinjau/naga.png`. Aset baru harus cocok dengan gaya ini.
 - Persetujuan: pemilik proyek, tanggal: —
