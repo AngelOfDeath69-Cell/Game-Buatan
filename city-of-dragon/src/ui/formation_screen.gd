@@ -1,15 +1,18 @@
 class_name FormationScreen
 extends Control
-## Layar pilih naga dan formasi. Pemain memilih 3 naga: depan, tengah, belakang.
+## Layar pilih naga dan formasi. Pemain memilih 3 naga miliknya: depan, tengah, belakang.
 
 ## Dipancarkan saat pemain menekan Mulai. [param team]: Array data naga urut dari depan.
 signal mulai(team: Array)
+## Dipancarkan saat pemain menekan tombol Telur.
+signal buka_telur
 
 const NAMA_SLOT := ["DEPAN", "TENGAH", "BELAKANG"]
 const KOLOM := 8
 const SEL := Vector2(46, 42)
 
 var _data: GameData
+var _state: PlayerState
 var _team: Array = []
 var _tombol_naga: Dictionary = {}
 var _tombol_slot: Array[Button] = []
@@ -17,8 +20,9 @@ var _tombol_mulai: Button
 var _info: Label
 
 
-func setup(data: GameData) -> void:
+func setup(data: GameData, state: PlayerState) -> void:
 	_data = data
+	_state = state
 
 
 func _ready() -> void:
@@ -31,7 +35,7 @@ func _ready() -> void:
 	bg.modulate = Color(0.55, 0.55, 0.6)
 	add_child(bg)
 
-	var judul := UiTheme.judul("PILIH 3 NAGA")
+	var judul := UiTheme.judul("PILIH 3 NAGA   KOLEKSI %d/%d" % [_state.owned.size(), _data.dragons.size()])
 	judul.position = Vector2(12, 8)
 	add_child(judul)
 
@@ -47,7 +51,7 @@ func _ready() -> void:
 	kisi.add_theme_constant_override("h_separation", 1)
 	kisi.add_theme_constant_override("v_separation", 1)
 	gulir.add_child(kisi)
-	for d: Dictionary in _data.dragons:
+	for d: Dictionary in _state.naga_dimiliki(_data):
 		var b := Button.new()
 		b.icon = load(d["sprite"])
 		b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -59,23 +63,32 @@ func _ready() -> void:
 
 	for i in NAMA_SLOT.size():
 		var s := Button.new()
-		s.position = Vector2(412, 24 + i * 62)
-		s.size = Vector2(220, 58)
+		s.position = Vector2(412, 24 + i * 55)
+		s.size = Vector2(220, 52)
 		s.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		s.pressed.connect(lepas.bind(i))
 		add_child(s)
 		_tombol_slot.append(s)
 
 	_info = Label.new()
-	_info.position = Vector2(416, 212)
-	_info.size = Vector2(212, 84)
+	_info.position = Vector2(416, 190)
+	_info.size = Vector2(212, 64)
 	_info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	add_child(_info)
 
+	var telur := Button.new()
+	telur.text = "TELUR (%d)" % _state.eggs.size()
+	if not _state.eggs.is_empty():
+		telur.icon = load(_data.get_egg(_state.eggs[0])["sprite"])
+	telur.position = Vector2(412, 258)
+	telur.size = Vector2(220, 44)
+	telur.pressed.connect(func() -> void: buka_telur.emit())
+	add_child(telur)
+
 	_tombol_mulai = Button.new()
 	_tombol_mulai.text = "MULAI BATTLE"
-	_tombol_mulai.position = Vector2(412, 310)
-	_tombol_mulai.size = Vector2(220, 42)
+	_tombol_mulai.position = Vector2(412, 306)
+	_tombol_mulai.size = Vector2(220, 46)
 	_tombol_mulai.pressed.connect(mulai_battle)
 	add_child(_tombol_mulai)
 	_segarkan()

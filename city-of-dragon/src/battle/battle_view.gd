@@ -5,6 +5,9 @@ extends Control
 
 ## Dipancarkan saat pemain menekan Kembali di panel hasil.
 signal kembali
+## Dipancarkan sekali saat tim pemain menang, sebelum panel hasil dibuat.
+## Pendengar boleh mengisi [member hadiah].
+signal menang
 
 const LEBAR := 640.0
 const TINGGI_ARENA := 330.0
@@ -12,6 +15,8 @@ const SKALA_ARENA := 3.0
 
 ## True setelah panel hasil tampil.
 var selesai := false
+## Data telur hadiah (lihat `koleksi.json`) untuk ditampilkan di panel hasil. {} = tanpa hadiah.
+var hadiah: Dictionary = {}
 
 var _data: GameData
 var _sim: BattleSim
@@ -162,19 +167,30 @@ func _tampil_hasil() -> void:
 	var w := _sim.winner()
 	var teks := "MENANG!" if w == 0 else ("KALAH" if w == 1 else "SERI")
 	_log.text = "Battle selesai"
+	if w == 0:
+		menang.emit()
 	var panel := PanelContainer.new()
-	panel.position = Vector2(200, 110)
-	panel.size = Vector2(240, 110)
+	panel.position = Vector2(200, 90)
+	panel.size = Vector2(240, 150)
 	add_child(panel)
 	var isi := VBoxContainer.new()
 	isi.alignment = BoxContainer.ALIGNMENT_CENTER
-	isi.add_theme_constant_override("separation", 12)
+	isi.add_theme_constant_override("separation", 6)
 	panel.add_child(isi)
 	var judul := UiTheme.judul(teks)
 	judul.add_theme_font_size_override("font_size", UiTheme.UKURAN_JUDUL * 2)
 	judul.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	judul.modulate = Color("ffd23c") if w == 0 else Color.WHITE
 	isi.add_child(judul)
+	if not hadiah.is_empty():
+		var telur := TextureRect.new()
+		telur.texture = load(hadiah["sprite"])
+		telur.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		isi.add_child(telur)
+		var ket := Label.new()
+		ket.text = "+1 %s" % hadiah["nama"]
+		ket.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		isi.add_child(ket)
 	var b := Button.new()
 	b.text = "KEMBALI"
 	b.custom_minimum_size = Vector2(120, 36)
