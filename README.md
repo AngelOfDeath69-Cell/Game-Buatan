@@ -4,4 +4,4 @@ Kumpulan game Buatan Komersial, Ujicoba atau Pribadi
 ## Daftar game
 | Folder | Game | Status |
 |---|---|---|
-| `city-of-dragon/` | City of Dragon: Epic Battle — kolektor naga, auto-battle tim vs tim (Godot 4, pixel art) | Prototipe: koleksi, telur menetas, auto-battle 3 lawan 3 |
+| `hatch-and-fuse/` | Hatch & Fuse: Dragon Arena — kumpul telur, menetas, fusion, auto-battle tim vs tim (Godot 4, pixel art) | Prototipe bisa dimainkan + APK debug |
