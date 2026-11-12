@@ -1,2 +1,12 @@
 # Game-Buatan
 Kumpulan game Buatan Komersial, Ujicoba atau Pribadi
+
+## Daftar game
+| Folder | Game | Status |
+|---|---|---|
+| `hatch-and-fuse/` | Hatch & Fuse: Dragon Arena — kumpul telur, menetas, fusion, auto-battle tim vs tim (Godot 4, pixel art) | Prototipe bisa dimainkan + APK debug |
+
+## Aset bersama
+| Folder | Isi |
+|---|---|
+| `aset-mentah/` | 49 pack aset 2D CC0 asli dari OpenGameArt (belum diubah) + daftar lisensi |

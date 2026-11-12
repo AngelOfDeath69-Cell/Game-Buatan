@@ -1,0 +1,121 @@
+{
+  "catatan": "Koleksi, telur, dan fusion. Nilai awal (usulan). Fusion: 2 naga sama + bintang sama -> 1 naga bintang+1; tiap bintang menambah bonus_bintang ke HP/ATK/DEF.",
+  "naga_awal": [
+    "fire_drake",
+    "swamp_drake",
+    "forest_drake"
+  ],
+  "telur_awal": [
+    "polos"
+  ],
+  "maks_bintang": 5,
+  "bonus_bintang": 0.25,
+  "bobot_tingkat": {
+    "1": 70,
+    "2": 25,
+    "3": 5
+  },
+  "telur": [
+    {
+      "id": "polos",
+      "nama": "Telur Polos",
+      "sprite": "res://assets/eggs/telur_polos.png",
+      "elemen": [],
+      "bobot": 30,
+      "nama_en": "Plain Egg"
+    },
+    {
+      "id": "api",
+      "nama": "Telur Api",
+      "sprite": "res://assets/eggs/telur_api.png",
+      "elemen": [
+        "api"
+      ],
+      "bobot": 10,
+      "nama_en": "Fire Egg"
+    },
+    {
+      "id": "es",
+      "nama": "Telur Es",
+      "sprite": "res://assets/eggs/telur_es.png",
+      "elemen": [
+        "es"
+      ],
+      "bobot": 8,
+      "nama_en": "Ice Egg"
+    },
+    {
+      "id": "biru",
+      "nama": "Telur Biru",
+      "sprite": "res://assets/eggs/telur_biru.png",
+      "elemen": [
+        "air",
+        "petir"
+      ],
+      "bobot": 10,
+      "nama_en": "Blue Egg"
+    },
+    {
+      "id": "hijau",
+      "nama": "Telur Hijau",
+      "sprite": "res://assets/eggs/telur_hijau.png",
+      "elemen": [
+        "alam",
+        "racun"
+      ],
+      "bobot": 12,
+      "nama_en": "Green Egg"
+    },
+    {
+      "id": "emas",
+      "nama": "Telur Emas",
+      "sprite": "res://assets/eggs/telur_emas.png",
+      "elemen": [
+        "cahaya"
+      ],
+      "bobot": 6,
+      "nama_en": "Golden Egg"
+    },
+    {
+      "id": "cokelat",
+      "nama": "Telur Cokelat",
+      "sprite": "res://assets/eggs/telur_cokelat.png",
+      "elemen": [
+        "logam",
+        "udara"
+      ],
+      "bobot": 8,
+      "nama_en": "Brown Egg"
+    },
+    {
+      "id": "ungu",
+      "nama": "Telur Ungu",
+      "sprite": "res://assets/eggs/telur_ungu.png",
+      "elemen": [
+        "bayangan"
+      ],
+      "bobot": 6,
+      "nama_en": "Purple Egg"
+    },
+    {
+      "id": "hitam",
+      "nama": "Telur Hitam",
+      "sprite": "res://assets/eggs/telur_hitam.png",
+      "elemen": [
+        "arwah"
+      ],
+      "bobot": 8,
+      "nama_en": "Black Egg"
+    },
+    {
+      "id": "merah",
+      "nama": "Telur Merah",
+      "sprite": "res://assets/eggs/telur_merah.png",
+      "elemen": [
+        "multi"
+      ],
+      "bobot": 2,
+      "nama_en": "Red Egg"
+    }
+  ]
+}

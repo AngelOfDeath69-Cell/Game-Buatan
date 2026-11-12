@@ -1,0 +1,27 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="Hatch & Fuse: Dragon Arena"
+config/version="0.2.0"
+run/main_scene="res://src/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://assets/dragons/boss/boss_naga_merah.png"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+window/handheld/orientation=4
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
